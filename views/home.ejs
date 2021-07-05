@@ -1,0 +1,64 @@
+
+Links to mortgage advive and mortgage news home pages below
+<ul>
+    <li>
+        <a href="/mortgage-advice">Mortgage Advice</a>
+    </li>
+    <li>
+        <a href="/mortgage-news">Mortgage News</a>
+    </li>
+</ul>
+
+List of all mortgage news related posts below 
+
+<ul>
+    <% posts.forEach(function(item){ %>
+       <% if(item.post_news === true){ %>
+           <li>Title of the post <%= item.post_title %>
+                <ul>
+                    <li>Link to the post  
+                        <a href="/mortgage-news/<%= item.post_url %>"><%= item.post_title %></a>
+                    </li> 
+                </ul>
+          </li> 
+       <% } %>
+    <% }) %>
+</ul>
+
+List of all mortgage advice related posts below 
+
+<ul>
+    <% posts.forEach(function(item){ %>
+        <% if(item.post_advice === true){ %>
+           <li>Title of the post <%= item.post_title %>
+                <ul>
+                    <li>Link to the post  <a href=""><%= item.post_title %></a> </li> 
+                </ul>
+          </li> 
+       <% } %>
+    <% }) %>
+</ul>
+
+
+
+<ul>
+    Home Pages Below
+    <% pages.forEach(function(item){ %> 
+       <% if(item.isParental === true){ %>
+            <li>
+                <a href="<%=item.page_url%>"><%= item.page_title %></a>
+            </li>
+       <% } %>
+    <% }) %>
+</ul>
+
+<ul>
+    rest of pages below 
+    <% pages.forEach(function(item){ %> 
+       <% if(item.isParental === false){ %>
+            <li>
+                <a href="<%=item.page_parent%>/<%=item.page_url%>"><%= item.page_title %></a>
+            </li>
+       <% } %>
+    <% }) %>
+</ul>

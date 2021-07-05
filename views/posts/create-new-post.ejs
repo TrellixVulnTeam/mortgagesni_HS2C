@@ -1,0 +1,134 @@
+<%- include('../partials/head-links.ejs') %>
+<%- include('../partials/head-nav.ejs') %>
+
+<h1>
+Create a new post page
+</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="mt-5">
+                <form action="/create-new-post" method="POST">
+            
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="post_author">Post Author</label>
+                                    <input type="text" class="form-control" name="post_author" id="post_author"  placeholder="Post Author">
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="post_author_image">Post Author Image</label>
+                                    <input type="text" class="form-control" name="post_author_image" id="post_author_image"  placeholder="Post Author Image">
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="post_title">Post Title</label>
+                                    <input type="text" class="form-control" name="post_title" id="post_title"  placeholder="Post Title">
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="post_category">Post Category</label>
+                                    <select class="custom-select" name="post_category" id="post_category" >
+                                        <option value="FTB">First Time Buyer</option>
+                                        <option value="BTL">Buy to Let</option>
+                                        <option value="remortgage">re-mortgage</option>
+                                        <option value="self-build">Self Build</option>
+                                        <option value="self-employed">Self Employed</option>
+                                        <option value="mortgage-news">Mortgage News</option>
+                                        <option value="mortgage-advice">Mortgage Advice</option>
+                                        <option value="home-mover">Home Mover</option>
+                                      </select>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">
+                                        Add this post to our mortgage news section
+                                    </label>
+                                    <div class="custom-control custom-radio">
+                                      <input type="radio" id="mn_yes" name="post_news" class="custom-control-input" value="yes">
+                                      <label class="custom-control-label" for="mn_yes">Yes</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                      <input type="radio" id="mn_no" name="post_news" class="custom-control-input" value="no">
+                                      <label class="custom-control-label" for="mn_no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                      
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">
+                                        Add this post to our mortgage advice section
+                                    </label>
+                                    <div class="custom-control custom-radio">
+                                      <input type="radio" id="ma_yes" name="post_advice" class="custom-control-input" value="yes">
+                                      <label class="custom-control-label" for="ma_yes">Yes</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                      <input type="radio" id="ma_no" name="post_advice" class="custom-control-input" value="no">
+                                      <label class="custom-control-label" for="ma_no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="tags">tags</label>
+                                    <select class="custom-select" name="tags" id="tags" multiple>
+                                        <option value="FTB">First Time Buyer</option>
+                                        <option value="BTL">Buy to Let</option>
+                                        <option value="remortgage">Re-mortgage </option>
+                                        <option value="self-build">self-build</option>
+                                        <option value="home-mover">Home Mover</option>
+                                        <option value="self-employed">Self Employed</option>
+                                      </select>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="post_url">Post url</label>
+                                    <input type="text" class="form-control" name="post_url" id="post_url"  placeholder="Post url">
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="post_content">Post Content</label>
+                                    <textarea class="form-control" name="post_content" id="post_content" rows="10"></textarea>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>            
+            
+                    <button class="btn btn-primary btn-block" type="submit">Submit</button>
+               
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include('../partials/footer.ejs') %>

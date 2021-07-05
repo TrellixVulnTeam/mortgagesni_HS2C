@@ -1,0 +1,9 @@
+Next 
+
+All the parental pages are set as required and posted to the database this is not a dynamic enough setup for a live version in someone elses hands. If this version was to go public we would have to set up forms that write files so that the routes etc could be ammended for the parental pages.
+
+Next 
+Create a couple of posts for each parental page + news and posts
+Create dynamic nav bar and side bars as partials that can be used on alll pages to avoid duplicate code
+
+Much cleaner set of routes built now,  I don't se any reason why I cannot use the page routes for the post / news routes however an issue may arise if the templates are not the same for posts and pages

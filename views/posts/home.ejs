@@ -1,0 +1,29 @@
+
+
+
+
+<% if(url === "mortgage-news"){ %>
+    <h1>This is the home page for the mortgage news blog</h1>
+<% } else if(url === "mortgage-advice") { %>
+    <h1>This is the home page for the mortgage Advice blog</h1>
+<% } %>
+
+<% if(url === "/mortgage-news"){ %>
+    <% posts.forEach(function(item){ %>
+        <% if(item.post_news === true){ %>
+            <li>
+                <a href="/mortgage-news/<%=item.post_url%>"><%=item.post_title%></a>
+            </li>  
+        <% } %>
+    <% }) %>
+<% } %>
+
+<% if(url === "/mortgage-advice"){ %>
+    <% posts.forEach(function(item){ %>
+        <% if(item.post_advice === true){ %>
+            <li>
+                <a href="/mortgage-advice/<%=item.post_url%>"><%=item.post_title%></a>
+            </li>  
+        <% } %>
+    <% }) %>
+<% } %>

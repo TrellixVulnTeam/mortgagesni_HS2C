@@ -1,0 +1,319 @@
+<%- include('../partials/head-links.ejs') %>
+<%- include('../partials/head-nav.ejs') %>
+
+<h1>
+Create a new page
+</h1>
+
+<div class="">
+    <form action="/create-new-page" method="POST">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="page_author">page Author</label>
+                            <input type="text" class="form-control" name="page_author" id="page_author"  placeholder="page Author">
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="page_author_image">page Author Image</label>
+                            <input type="text" class="form-control" name="page_author_image" id="page_author_image"  placeholder="page Author Image">
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="page_title">page Title</label>
+                            <input type="text" class="form-control" name="page_title" id="page_title"  placeholder="page Title">
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="page_category">Page Category</label>
+                            <select class="custom-select" name="page_category" id="page_category" >
+                                <option value="FTB">First Time Buyer</option>
+                                <option value="home-mover">Home Mover</option>
+                                <option value="BTL">Buy to Let</option>
+                                <option value="remortgage">re-mortgage</option>
+                                <option value="self-build">Self Build</option>
+                                <option value="self-employed">Self Employed</option>
+                                <option value="mortgage-news">Mortgage News</option>
+                                <option value="mortgage-advice">Mortgage Advice</option>
+                              </select>
+                          </div>
+                    </div>
+                </div>
+  
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="tags">tags</label>
+                            <select class="custom-select" name="tags" id="tags" multiple>
+                                <option value="FTB">First Time Buyer</option>
+                                <option value="BTL">Buy to Let</option>
+                                <option value="remortgage">Re-mortgage </option>
+                                <option value="self-build">self-build</option>
+                                <option value="home-mover">Home Mover</option>
+                                <option value="self-employed">Self Employed</option>
+                              </select>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <label for="isParental">Should this page be a parental Page</label>
+                        <div id="isParental">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="isParental" id="isParental_yes" value="true">
+                                <label class="form-check-label" for="isParental_yes">
+                                  Yes
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="isParental" id="isParental_no" value="false" checked>
+                                <label class="form-check-label" for="isParental_no">
+                                  No
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add logic here - If the page selected is not to be a parent page show below - the page parent selector will have to be dynamic and show only parental page s that have already been created  -->
+               This section should be automated going forward if the user says that the page is a parental page we hide this section as it is not required. There should also be a security feature here that forwards the article to me for approval if the page is declared as parent
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="page_parent">Page Parent</label>
+                            <select class="custom-select" name="page_parent" id="page_parent">
+                                <option value="">
+                                    No Parent (Warning - Most pages require a parent)
+                                </option>
+                                <option value="/first-time-buyer-mortgages">
+                                    First Time Buyer
+                                </option>
+                                <option value="/buy-to-let-mortgages">
+                                    Buy to Let
+                                </option>
+                                <option value="/re-mortgage-advice">
+                                    Re-mortgage 
+                                </option>
+                                <option value="/self-build-mortgages">
+                                    self-build
+                                </option>
+                                <option value="/self-employed-mortgages">
+                                    Self Emplyed
+                                </option>
+                                <option value="/home-mover">
+                                    Home Mover
+                                </option>
+                              </select>
+                          </div>
+                    </div>
+                </div>
+            
+
+
+                Data for the page url section should be sanitized and the user should only include letters and numbers seperated by a - no forwards / etc this will be added behind the scenes a warning showing the error neeeds to be returned to the user
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="page_url">page url</label>
+                            <input type="text" class="form-control" name="page_url" id="page_url"  placeholder="page url">
+                          </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="page_menu_link">page menu link ( Displays in navigation bar )</label>
+                            <input type="text" class="form-control" name="page_menu_link" id="page_menu_link"  placeholder="page menu link">
+                          </div>
+                    </div>
+                </div>
+
+
+                <div id="more_sections">
+                    <!--
+                   <div class="content-row">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="section_title">Section Title</label>
+                                    <input type="text" class="form-control" name="section_title"   placeholder="Section Title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="section_content">Section Content</label>
+                                    <textarea class="form-control" name="section_content" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                    <div class="add_remove_section_container">
+                        Further logic will need to be added here to allow the user to remove the previous section 
+                        <button id="add_another_spalsh_section">Add a Splash Section</button>
+
+                        <button id="add_another_accordian_section">Add an Accordian Section</button>
+                    </div>
+                </div>
+
+            </div>    
+            
+
+    
+            <button class="btn btn-primary btn-block" type="submit">Submit</button>
+       
+    </form>
+
+    
+</div>
+
+<script>
+    //Add accordian Section
+    const addAccordianSec = document.getElementById("add_another_accordian_section");
+    
+    var sectionCounter = 0;
+
+    addAccordianSec.addEventListener("click", function(e){
+        e.preventDefault();
+       const sectionContainer = document.getElementById("more_sections");
+       let section = sectionCounter++;
+      
+        
+       
+       const panel =  document.createElement("div")
+       panel.setAttribute("class", "accordianPanel accordian__text-align-left")
+
+       // Add an input for the section title 
+       const secTitle = document.createElement("input");
+       secTitle.setAttribute("id", `section-${section}-title`);
+       secTitle.setAttribute("name", `section_title`)
+       secTitle.setAttribute("class", "form-control")
+      
+
+       //Add a textarea for the users input
+       const textArea = document.createElement("textarea");
+       textArea.setAttribute("id", `section-${section}-content`);
+       textArea.setAttribute("name", `section_content`);
+       textArea.setAttribute("rows", "10")
+       textArea.setAttribute("class", "form-control mb-5")
+      
+
+       //Create Groups to add bootstrap styling
+
+       const formGroup = document.createElement("div");
+       formGroup.setAttribute("class", "form-group");
+
+       //Create Groups to add bootstrap styling
+
+       //Temp append element
+       formGroup.appendChild(secTitle)
+       panel.appendChild(formGroup)
+       panel.appendChild(textArea)
+
+
+       sectionContainer.appendChild(panel);
+
+
+
+    })
+
+</script>
+
+<!--    
+<script>
+
+//This is the first working function we have altered it above to add variations of sections 
+const addSection = document.getElementById("add_another_section");
+console.log(addSection)
+const sectionContainer = document.getElementById("more_sections");
+
+addSection.addEventListener("click", function(e){
+e.preventDefault();
+//create a new row
+const newRow = document.createElement("div")
+newRow.setAttribute("class", "row")
+//create a new col
+const newCol = document.createElement("div");
+newCol.setAttribute("class", "col-12")
+
+//create a new form group for title
+const newGroupTitle = document.createElement("div");
+newGroupTitle.setAttribute("class", "form-group");
+
+//create a new form group for content
+const newGroupContent = document.createElement("div");
+newGroupContent.setAttribute("class", "form-group");
+
+//create a new label for form group
+const sectionTitleLabel = document.createElement("label");
+sectionTitleLabel.setAttribute("for", "section_title");
+
+//Create a new input for the new section title
+const titleInput = document.createElement("input");
+titleInput.setAttribute("type", "text");
+titleInput.setAttribute("class", "form-control");
+titleInput.setAttribute("name", "section_title");
+titleInput.setAttribute("placeholder", "Section Title");
+
+//Create a new content label
+const contentLabel = document.createElement("label");
+contentLabel.setAttribute("for", "section_content");
+
+//Create new textare for content
+const textArea = document.createElement("textarea");
+textArea.setAttribute("class", "form-control");
+textArea.setAttribute("name", "section_content");
+textArea.setAttribute("rows", "10");
+
+//Create Text Nodes for content
+document.createTextNode("Section Title");
+document.createTextNode("Section Content")
+
+//Build the new section from the inside out 
+
+//Title Group First
+newGroupTitle.appendChild(sectionTitleLabel);
+newGroupTitle.appendChild(titleInput);
+const titleGroup = newGroupTitle;
+
+//content group next
+newGroupContent.appendChild(contentLabel)
+newGroupContent.appendChild(textArea);
+
+
+//append title and content to col
+newCol.appendChild(newGroupTitle);
+newCol.appendChild(newGroupContent);
+
+newRow.appendChild(newCol);
+
+
+
+//create a content row container so the we can loop through all available containers and create an object for each one
+const containerRow = document.createElement("div");
+containerRow.setAttribute("class", "content-row");
+
+containerRow.appendChild(newRow);
+
+sectionContainer.appendChild(containerRow);
+
+})
+</script>
+-->
+
+<%- include('../partials/footer.ejs') %>
+
+
+
+

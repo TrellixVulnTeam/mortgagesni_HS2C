@@ -1,0 +1,51 @@
+<% if(category === "mortgage-advice"){ %>
+   <p>This is the mortgage advice show page</p> 
+<% } else if(category === "mortgage-news"){ %>
+    <p>This is the mortgage news show page</p> 
+<% } %>
+
+<% posts.forEach(function(item){ %>
+   <% if(item.post_url === requestedPage){ %>
+      <h1><%=item.post_title%></h1> 
+
+      <div class="">
+          <p>tags</p>
+          <% item.tags.forEach(function(item){ %>
+            <p><%=item%></p>
+          <% }) %>
+      </div>
+
+      <div class="">
+          <%= item.post_author %>
+      </div>
+
+      <div class="">
+        <%= item.post_author_image %>
+    </div>
+
+    <div class="">
+        <%= item.post_title %>
+    </div>
+
+    <div class="">
+        <%= item.post_category %>
+    </div>
+
+    <div class="">
+        mortgage news -------  <%= item.post_news %>
+    </div>
+
+    <div class="">
+      mortgage advice -------  <%= item.post_advice %>
+    </div>
+
+    <div class="">
+        <%= item.post_url %>
+    </div>
+
+    <div class="">
+        <%= item.post_content %>
+    </div>
+
+    <% } %>
+<% }) %>

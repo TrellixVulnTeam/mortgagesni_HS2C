@@ -1,0 +1,38 @@
+<%- include('../partials/head-links.ejs') %>
+<%- include('../partials/head-nav.ejs') %>
+
+<h1>
+login
+</h1>
+
+<% if(errors){ %>
+
+  <% for(var i = 0; i < errors.length; i++){ %>
+      <div class="user-message user-message--error"> <%=errors[i]%> </div>
+ <% } %>
+
+<% } %>
+
+<div class="spf-container">
+    <form action="/login" method="post" class="spf-form">
+        <div class="spf-form-container">
+            <label>Username:</label>
+            <input type="text" name="username"/>
+        </div>
+        <div class="spf-form-container">
+            <label>Password:</label>
+            <input type="password" name="password"/>
+        </div>
+        <div class="spf-form-container">
+            <input type="submit" value="Log In"/>
+        </div>
+        <div class="spf-form-container">
+            <a href="/reset-password">Reset Password</a>
+        </div>
+    </form>
+</div>
+
+
+
+<%- include('../partials/footer.ejs') %>
+

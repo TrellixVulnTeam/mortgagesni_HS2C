@@ -1,0 +1,88 @@
+<div class="container"> <!-- Main page container including side bar-->
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+<!--Print out all the available data from the requested page-->
+          <div class="row">
+              <div class="col-12">
+                <div class="page-info">
+
+                    <p> page author - <%=page.page_author%></p>
+         
+                    <p>page author image - <%=page.page_author_image%></p>
+
+                    <p>page date - <%=page.page_date%></p>
+
+                    In this Guide
+
+                    <% page.page_sections.forEach(function(item){ %>
+                        <li> <a href=""><%= item.section_title %></a> </li>
+                    <% }) %>
+         
+                    <p>page title - <%=page.page_title%></p>
+                
+                    <p>page category - <%=page.page_category%></p>
+
+                    <div class=""> page tags 
+                        <% page.tags.forEach(function(item){ %>
+                            <li><%= item %></li>
+                         <% }) %>
+                    </div>
+
+                
+                    
+                
+                    <p>isParental  - <%=page.isParental%></p>
+                
+                    <p>pages parent - <%=page.page_parent%></p>
+                
+                    <p>page url - <%=page.page_url%></p>
+
+                    <p>display link text <%= page.page_menu_link %></p>
+
+                    <div class="">page sections 
+                        <% page.page_sections.forEach(function(item){ %>
+                            <p class="richTextElement"><%= item.section_title %></p>
+                            <p class="richTextElement"><%= item.section_content %></p>
+                        <% }) %>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                <div class="related-posts">
+                    <!--Prints out all the related posts and news articles for each section -->
+                        <% posts.forEach(function(item){ %>
+                            <% item.tags.forEach(function(tag){ %>
+                                <% if(tag === page.page_category){ %>
+                                <div class="related-posts-post"><%= item.post_title %></div>  
+                                <% } %>
+                            <% }) %>
+                        <% }) %>
+                </div>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="related-posts">
+                  <!--Prints out all the Children if the current page is a home page for each section -->
+                  <% if(page.isParental === true ){ %>
+                    <% pages.forEach(function(item){ %>
+                       <% if(item.page_parent === page.page_url) { %>
+                        <div class="">
+                            <a href="<%=item.page_parent%>/<%=item.page_url%>"><%=item.page_title%></a>
+                        </div>
+                            <% } %>
+                      <% }) %>
+                    <% } %>
+                  
+              </div>
+            </div>
+        </div>
+
+
+        </div>
+        <%- include('../../partials/sidebars/sidebar-for-pages.ejs') %>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.user{
+
+    &-message{
+        width: 40vw;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+
+        &--error{
+            border: 3px solid red;
+            background-color: rgb(194, 66, 66);
+            color: white;
+    
+        }
+    }
+}

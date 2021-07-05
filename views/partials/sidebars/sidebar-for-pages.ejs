@@ -1,0 +1,46 @@
+<div class="col-md-4 col-sm-12">
+    <div class="row">
+        <div class="col-12">
+            <% console.log(page)%>
+           
+        <!--Logic to list parental page in side bar -->    
+            <% if(page.isParental === true){ %>
+               <% console.log("Is Parent") %>
+                <a href="<%= url %>"> <%= page.page_title %></a>
+            <% } else { %>
+               <% pages.forEach(function(item){ %>
+                   <% if(item.page_url === page.page_parent){ %>
+                    <a href="<%= item.page_url %>"><%=item.page_title %></a>
+                   <% } %>
+               <% }) %>
+            <% } %>
+        </div>
+    </div>
+        <!--Logic to print links to the children pages -->
+       
+       <% if(page.isParental === true){ %>
+        
+        <%  pages.forEach(function(item){ %>
+            <% if(item.page_parent === page.page_url && item.isParental === false){ %>
+                <% console.log(item)%>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="<%= item.page_parent%><%=item.page_url %> %>"><%= item.page_title %></a>
+                        </div>
+                    </div>
+            <%  } %>
+        <%   }) %>
+
+        <% } else { %>
+        <% pages.forEach(function(item){ %>
+         <% if(item.page_category === page.page_category && item.isParental === false ){ %>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="<%=item.page_parent%><%=item.page_url%>"><%= item.page_title %></a>
+                        </div>
+                    </div>
+        <%  } %>
+        <%  }) %>
+        <% } %>
+
+</div>

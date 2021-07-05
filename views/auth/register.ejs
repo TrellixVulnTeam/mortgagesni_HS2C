@@ -1,0 +1,59 @@
+<%- include('../partials/head-links.ejs') %>
+<%- include('../partials/head-nav.ejs') %>
+
+<h1>
+Register
+</h1>
+
+<% if (errorMessage){ %>
+        <div class="user-message user-message--error">
+            
+                <% errorMessage.forEach(function(msg){ %>
+                    <div class="">
+                        <%=msg.msg%> 
+                    </div>
+                <% }) %>
+        </div>
+  <% } else if(userFound) { %>
+    <div class="user-message user-message--error">        
+        <%=userFound%>
+    </div>
+  <% } %>
+<div class="spf-container">
+    <form action="/register" method="post" class="spf-form">
+        <div class="spf-form-container">
+            <label>E-Mail:</label>
+            <div class="">
+                <input type="email"
+
+                value="<%if(errorMessage){%>
+                    <%=body.email%>
+                <%}%>" 
+                
+                placeholder="e-mail" name="email" class="spf-input" />
+            </div>
+        </div>
+        <div class="spf-form-container">
+            <label>Password:</label>
+            <div class="">
+                <input class="spf-input" type="password" name="password"/>
+            </div>
+            
+        </div>
+
+        <div class="spf-form-container">
+            <label>Confirm Password</label>
+            <div class="">
+                <input class="spf-input" type="password" name="passwordConfirm"/>
+            </div> 
+        </div>
+
+        <div class="spf-form-container">    
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+<%- include('../partials/footer.ejs') %>
+

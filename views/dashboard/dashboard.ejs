@@ -1,0 +1,21 @@
+I am the dash board I should be blocked unless the request is authenticated
+
+<% if(message) { %>
+<div class="">
+    <%=message%>
+</div>
+<% } %>
+
+
+<ul>
+    <li><a href="/create-new-post">Create a new post</a></li>
+    <li><a href="/create-new-page">Create New Page</a></li>
+</ul>
+
+
+
+<div class="">
+    <form action="/logout" method="POST">
+    <button type="submit">Logout</button>
+    </form>
+</div>
