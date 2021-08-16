@@ -33,6 +33,7 @@ function findPosts(){
     })
 }
 
+console.log("Here")
 console.log(globalObj)
 
 
@@ -47,7 +48,7 @@ const User = require("./models/user")
 
 
 //Coonnect to Atlas Database
-const databaseConnect = "mongodb+srv://ricky1001:Astron!23@mindmymortgage.dri24.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" //'mongodb+srv://ricky1001:Astron!23@cluster0.eazmp.mongodb.net/Cluster0?retryWrites=true&w=majority';
+const databaseConnect = "mongodb+srv://ricky1001:DogsDick@mindmymortgage.dri24.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" //'mongodb+srv://ricky1001:Astron!23@cluster0.eazmp.mongodb.net/Cluster0?retryWrites=true&w=majority';
 //App Configuration
 mongoose.connect(databaseConnect, {useNewUrlParser: true});
 

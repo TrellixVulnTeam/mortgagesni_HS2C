@@ -143,22 +143,7 @@ Create a new page
 
 
                 <div id="more_sections">
-                    <!--
-                   <div class="content-row">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="section_title">Section Title</label>
-                                    <input type="text" class="form-control" name="section_title"   placeholder="Section Title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="section_content">Section Content</label>
-                                    <textarea class="form-control" name="section_content" rows="10"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    -->
+
                     <div class="add_remove_section_container">
                         Further logic will need to be added here to allow the user to remove the previous section 
                         <button id="add_another_spalsh_section">Add a Splash Section</button>
@@ -192,7 +177,7 @@ Create a new page
         
        
        const panel =  document.createElement("div")
-       panel.setAttribute("class", "accordianPanel accordian__text-align-left")
+       panel.setAttribute("class", "accordianPanel accordian__text-align-left mt-3")
 
        // Add an input for the section title 
        const secTitle = document.createElement("input");
@@ -216,8 +201,19 @@ Create a new page
 
        //Create Groups to add bootstrap styling
 
+
+       //Create a hidden input that contains the type of section ie accordian or splash -- Start -- Testing
+        const hiddenInputTitle = document.createElement("input")
+        hiddenInputTitle.setAttribute("name", `style`)
+        hiddenInputTitle.setAttribute("type", `hidden`)
+        hiddenInputTitle.setAttribute("value", `accordian`)
+       //Create a hidden input that contains the type of section ie accordian or splash -- End -- Testing
+
        //Temp append element
        formGroup.appendChild(secTitle)
+       //Testing adding styling to section start
+        formGroup.appendChild(hiddenInputTitle)
+       //Testing Adding styling to testing end
        panel.appendChild(formGroup)
        panel.appendChild(textArea)
 

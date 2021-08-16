@@ -16,7 +16,8 @@ var PageSchema = new mongoose.Schema({
     page_sections: [
         {
         section_title: String,
-        section_content: String
+        section_content: String,
+        section_style: String
         }
    ],
 });

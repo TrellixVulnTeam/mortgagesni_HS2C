@@ -14,15 +14,15 @@ exports.pageGetCreateNew = (req, res, next) => {
 
 //Post to the create new page route
 exports.pagePostCreateNew = (req, res, next) => {
+  console.log(req.body)
   const page_sections = [];
-  console.log(req.body.section_title)
-  console.log(req.body.section_title.length)
 
   if(typeof(req.body.section_title) === typeof(page_sections)){
     for(var i = 0; i < req.body.section_title.length; i++){
       let newSection = {
         section_title: req.body.section_title[i],
-        section_content: req.body.section_content[i]
+        section_content: req.body.section_content[i],
+        section_style: req.body.style[i]
       }
       console.log("new section below ")
       console.log(newSection)
@@ -33,7 +33,8 @@ exports.pagePostCreateNew = (req, res, next) => {
   }else{
     let newSection = {
       section_title: req.body.section_title,
-      section_content: req.body.section_content
+      section_content: req.body.section_content,
+      section_style: req.body.style
     }
 
     page_sections.push(newSection);
@@ -141,6 +142,9 @@ exports.showPageRoute = (req, res, next) => {
           return requestedPage = item;
         }
       })
+
+
+        
    Post.find({}, function(err, foundPost){
     res.render("pages/show",
      {
@@ -153,4 +157,6 @@ exports.showPageRoute = (req, res, next) => {
    }
   })
 }
+
+
 

@@ -39,12 +39,7 @@
 
                     <p>display link text <%= page.page_menu_link %></p>
 
-                    <div class="">page sections 
-                        <% page.page_sections.forEach(function(item){ %>
-                            <p class="richTextElement"><%= item.section_title %></p>
-                            <p class="richTextElement"><%= item.section_content %></p>
-                        <% }) %>
-                    </div>
+
                   </div>
               </div>
           </div>
@@ -81,8 +76,53 @@
             </div>
         </div>
 
+        <div id="thisIsTheTestDiv">
+            This is the test div
+        </div>
+
+
+           
+    
 
         </div>
         <%- include('../../partials/sidebars/sidebar-for-pages.ejs') %>
     </div>
 </div>
+
+
+<p id="requestedPageData" style="display:none">
+    <%= JSON.stringify(page) %>
+</p>
+
+<script>
+
+    let pageData = document.getElementById("requestedPageData").innerText;
+    const newElement = document.createElement("div");
+    pageData = JSON.parse(pageData);
+
+    const parser = new DOMParser();
+
+    let mainContent = document.createElement("div");
+    
+
+    pageData.page_sections.forEach(function(item){
+
+       let docTitle =  parser.parseFromString(item.section_title, "text/html"); 
+       let divTitle = docTitle.body.firstChild;
+
+       let docContent =  parser.parseFromString(item.section_content, "text/html"); 
+       let divContent = docContent.body.firstChild;
+       console.log("divContentBelow")
+       console.log(divContent)
+
+       mainContent.appendChild(divTitle)
+       mainContent.appendChild(divContent)
+       mainContent.setAttribute("class", `${item.section_style}`)
+       console.log(divTitle) 
+       console.log(divContent)
+    })
+
+    let testDiv = document.getElementById("thisIsTheTestDiv");
+    testDiv.appendChild(mainContent)
+
+</script>
